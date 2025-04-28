@@ -1,7 +1,7 @@
-import { create } from "zustand";
-import { User } from "../types/user.type";
-import { createJSONStorage, persist } from "zustand/middleware";
-import { storage } from "@utils/storage.util";
+import { create } from 'zustand';
+import { User } from '../types/user.type';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { storage } from '@utils/storage.util';
 
 interface AuthStore {
   user: User | null;
@@ -32,6 +32,6 @@ export const useAuthStore = create<AuthStore>()(
           isAuthenticated: user !== null,
         }),
     }),
-    { name: "user-storage", storage: createJSONStorage(() => storage) }
+    { name: 'user-storage', storage: createJSONStorage(() => storage) }
   )
 );

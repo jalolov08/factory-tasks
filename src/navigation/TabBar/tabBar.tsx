@@ -1,6 +1,6 @@
-import CustomTabBar from "@components/CustomTabBar/customTabBar.component";
-import { tabs } from "@constants/tabs.constant";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import CustomTabBar from '@components/CustomTabBar/customTabBar.component';
+import { tabs } from '@constants/tabs.constant';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 

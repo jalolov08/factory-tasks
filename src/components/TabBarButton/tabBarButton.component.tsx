@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   Pressable,
   StyleProp,
   ViewStyle,
   TextStyle,
   ColorValue,
-} from "react-native";
-import { Icons, Icon } from "@components/Icon/icon.component";
-import { Typography } from "@components/Typography/typography.component";
+} from 'react-native';
+import { Icons, Icon } from '@components/Icon/icon.component';
+import { Typography } from '@components/Typography/typography.component';
 import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 interface TabBarButtonProps {
   onPress: () => void;
@@ -40,7 +40,7 @@ export const TabBarButton: React.FC<TabBarButtonProps> = ({
 
   useEffect(() => {
     scale.value = withSpring(
-      typeof isFocused === "boolean" ? (isFocused ? 1 : 0) : isFocused,
+      typeof isFocused === 'boolean' ? (isFocused ? 1 : 0) : isFocused,
       { duration: 400 }
     );
   }, [scale, isFocused]);
@@ -63,7 +63,7 @@ export const TabBarButton: React.FC<TabBarButtonProps> = ({
       </Animated.View>
       {isFocused && (
         <Typography variant="caption" style={labelStyle}>
-          {typeof label === "string"
+          {typeof label === 'string'
             ? label.toLocaleLowerCase()
             : String(label).toLocaleLowerCase()}
         </Typography>

@@ -1,18 +1,18 @@
-import { TabBarButton } from "@components/TabBarButton/tabBarButton.component";
+import { TabBarButton } from '@components/TabBarButton/tabBarButton.component';
 import {
   black,
   colors,
   primaryColor,
   secondaryColor,
-} from "@constants/colors.constant";
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { useState } from "react";
-import { View, StyleSheet, LayoutChangeEvent, Platform } from "react-native";
+} from '@constants/colors.constant';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { useState } from 'react';
+import { View, StyleSheet, LayoutChangeEvent, Platform } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
@@ -38,12 +38,12 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
   const selectIcon = (routeName: string) => {
     switch (routeName) {
-      case "Задачи":
-        return "file-text";
-      case "Профиль":
-        return "user";
+      case 'Задачи':
+        return 'file-text';
+      case 'Профиль':
+        return 'user';
       default:
-        return "file-text";
+        return 'file-text';
     }
   };
 
@@ -75,7 +75,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             duration: 1500,
           });
           const event = navigation.emit({
-            type: "tabPress",
+            type: 'tabPress',
             target: route.key,
             canPreventDefault: true,
           });
@@ -87,7 +87,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
         const onLongPress = () => {
           navigation.emit({
-            type: "tabLongPress",
+            type: 'tabLongPress',
             target: route.key,
           });
         };
@@ -99,9 +99,9 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             onLongPress={onLongPress}
             isFocused={isFocused}
             icon={selectIcon(route.name)}
-            color={isFocused ? black : "#064246"}
+            color={isFocused ? black : '#064246'}
             label={
-              typeof label === "string"
+              typeof label === 'string'
                 ? label.toLocaleLowerCase()
                 : String(label).toLocaleLowerCase()
             }
@@ -118,11 +118,11 @@ export default CustomTabBar;
 
 const styles = StyleSheet.create({
   tabBar: {
-    position: "absolute",
-    bottom: Platform.OS === "android" ? 15 : 40,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    position: 'absolute',
+    bottom: Platform.OS === 'android' ? 15 : 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: colors.secondary,
     marginHorizontal: 90,
     borderRadius: 20,
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
   },
   tabBarItem: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 16,
     paddingVertical: 5,
     paddingHorizontal: 4,
@@ -139,11 +139,11 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     fontSize: 10,
-    fontWeight: "600",
+    fontWeight: '600',
     color: black,
   },
   anView: {
-    position: "absolute",
+    position: 'absolute',
     backgroundColor: colors.surface,
     borderRadius: 16,
     margin: 5,

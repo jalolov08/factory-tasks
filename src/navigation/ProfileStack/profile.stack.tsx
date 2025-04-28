@@ -1,13 +1,14 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TaskOrders from "@screens/TaskOrders/taskOrders.screen";
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Profile from '@screens/Profile/profile.screen';
+import { ProfileStackParams } from './profile.type';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<ProfileStackParams>();
 
 function ProfileStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="TaskOrders" component={TaskOrders} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 }

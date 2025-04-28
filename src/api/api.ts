@@ -1,7 +1,7 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
-import { API } from "config";
-import { useAuthStore } from "@zustand/useAuthStore";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { API } from 'config';
+import { useAuthStore } from '@zustand/useAuthStore';
 
 export const api = axios.create({
   baseURL: API,
@@ -10,13 +10,13 @@ export const api = axios.create({
 
 // ** Maybe add refresh token logic but not now bruhhh..
 
-const getAccessToken = async () => await AsyncStorage.getItem("token");
+const getAccessToken = async () => await AsyncStorage.getItem('token');
 
 api.interceptors.request.use(
   async (config) => {
     const token = await getAccessToken();
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers['Authorization'] = `Bearer ${token}`;
     }
     return config;
   },
@@ -36,7 +36,7 @@ api.interceptors.response.use(
       try {
         logout();
       } catch (logoutError) {
-        console.error("Logout failed", logoutError);
+        console.error('Logout failed', logoutError);
       }
 
       return Promise.reject(error);

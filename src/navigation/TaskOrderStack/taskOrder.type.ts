@@ -1,5 +1,5 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RouteProp } from "@react-navigation/native";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
 
 export type TaskOrderStackParams = {
   TaskOrders: undefined;
@@ -14,5 +14,5 @@ export type TaskOrderStackNavigationProps<
 
 export type TaskOrdersScreenProps = NativeStackScreenProps<
   TaskOrderStackParams,
-  "TaskOrders"
+  'TaskOrders'
 >;

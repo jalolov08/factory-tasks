@@ -1,8 +1,8 @@
-import React, { createContext, useContext } from "react";
-import { api } from "@api/api";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useAuthStore } from "@zustand/useAuthStore";
-import { User } from "../../types/user.type";
+import React, { createContext, useContext, useEffect } from 'react';
+import { api } from '@api/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuthStore } from '@zustand/useAuthStore';
+import { User } from '../../types/user.type';
 
 interface AuthContextProps {
   onLogin: (username: string, password: string) => Promise<boolean>;
@@ -23,10 +23,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const { user, setUser, logout, login } = useAuthStore();
 
+  useEffect(() => {
+    const getUser = async () => {
+      const token = await AsyncStorage.getItem('token');
+      if (token) {
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        try {
+          const response = await api.get<User>('/app/me');
+          setUser(response.data);
+        } catch (error) {
+          console.error('Failed to fetch user', error);
+        }
+      }
+    };
+
+    getUser();
+  }, []);
+
   const onLogin = async (username: string, password: string) => {
     try {
       const response = await api.post<{ token: string; user: User }>(
-        "/app/login",
+        '/app/login',
         {
           username,
           password,
@@ -34,13 +51,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       );
       const { token, user } = response.data;
 
-      await AsyncStorage.setItem("token", token);
+      await AsyncStorage.setItem('token', token);
       setUser(user);
       login(user);
 
       return true;
     } catch (error) {
-      console.error("Login failed", error);
+      console.error('Login failed', error);
       return false;
     }
   };
@@ -51,7 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       setUser(null);
       logout();
     } catch (error) {
-      console.error("Logout failed", error);
+      console.error('Logout failed', error);
     }
   };
 

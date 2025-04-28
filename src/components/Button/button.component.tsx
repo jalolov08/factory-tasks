@@ -1,5 +1,5 @@
-import { colors, grayLight, white } from "@constants/colors.constant";
-import React from "react";
+import { colors, grayLight, white } from '@constants/colors.constant';
+import React from 'react';
 import {
   TouchableOpacity,
   Text,
@@ -8,7 +8,7 @@ import {
   StyleSheet,
   ViewStyle,
   TextStyle,
-} from "react-native";
+} from 'react-native';
 
 type ButtonProps = {
   title: string;
@@ -54,16 +54,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   disabled: {
     backgroundColor: grayLight,
   },
   content: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   icon: {
     marginRight: 8,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   text: {
     color: white,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });
 

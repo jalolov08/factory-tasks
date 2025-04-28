@@ -1,15 +1,15 @@
-import TaskOrderStack from "@navigation/TaskOrderStack/taskOrder.stack";
-import ProfileStack from "@navigation/ProfileStack/profile.stack";
+import TaskOrderStack from '@navigation/TaskOrderStack/taskOrder.stack';
+import ProfileStack from '@navigation/ProfileStack/profile.stack';
 
 export const tabs = [
   {
-    name: "Задачи",
+    name: 'Задачи',
     component: TaskOrderStack,
-    icon: "file-text",
+    icon: 'file-text',
   },
   {
-    name: "Профиль",
+    name: 'Профиль',
     component: ProfileStack,
-    icon: "user",
+    icon: 'user',
   },
 ];

@@ -1,9 +1,9 @@
-import { colors } from "@constants/colors.constant";
-import React from "react";
-import { Text, TextStyle, StyleSheet, StyleProp } from "react-native";
+import { colors } from '@constants/colors.constant';
+import React from 'react';
+import { Text, TextStyle, StyleSheet, StyleProp } from 'react-native';
 
 type TypographyProps = {
-  variant: "h1" | "h2" | "h3" | "body" | "caption";
+  variant: 'h1' | 'h2' | 'h3' | 'body' | 'caption';
   children: React.ReactNode;
   style?: StyleProp<TextStyle>;
 };
@@ -21,27 +21,27 @@ export const Typography: React.FC<TypographyProps> = ({
 const styles = StyleSheet.create({
   h1: {
     fontSize: 32,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: colors.text.primary,
   },
   h2: {
     fontSize: 28,
-    fontWeight: "600",
+    fontWeight: '600',
     color: colors.text.primary,
   },
   h3: {
     fontSize: 24,
-    fontWeight: "500",
+    fontWeight: '500',
     color: colors.text.primary,
   },
   body: {
     fontSize: 16,
-    fontWeight: "400",
+    fontWeight: '400',
     color: colors.text.secondary,
   },
   caption: {
     fontSize: 12,
-    fontWeight: "300",
+    fontWeight: '300',
     color: colors.text.secondary,
   },
 });
