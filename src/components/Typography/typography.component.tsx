@@ -1,11 +1,11 @@
 import { colors } from "@constants/colors.constant";
 import React from "react";
-import { Text, TextStyle, StyleSheet } from "react-native";
+import { Text, TextStyle, StyleSheet, StyleProp } from "react-native";
 
 type TypographyProps = {
   variant: "h1" | "h2" | "h3" | "body" | "caption";
   children: React.ReactNode;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
 };
 
 export const Typography: React.FC<TypographyProps> = ({

@@ -1,14 +1,14 @@
-import { AuthProvider } from "@contexts/AuthContext/auth.context";
-import Login from "@screens/Login/login.screen";
-import React from "react";
-import { SafeAreaView } from "react-native";
+import { AuthProvider } from '@contexts/AuthContext/auth.context';
+import Main from '@navigation/index';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
 
 function App() {
   return (
     <AuthProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <Login />
-      </SafeAreaView>
+      <NavigationContainer>
+        <Main />
+      </NavigationContainer>
     </AuthProvider>
   );
 }
