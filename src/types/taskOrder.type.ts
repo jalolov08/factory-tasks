@@ -30,4 +30,5 @@ export interface ITaskOrder {
   givenDate: string;
   status: TaskOrderStatus;
   given: number;
+  rejectReason?: string;
 }

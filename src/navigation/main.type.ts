@@ -4,6 +4,7 @@ export type MainStackParams = {
   TabBar: undefined;
   AuthStack: undefined;
   EditProfile: undefined;
+  TaskOrder: { id: string };
 };
 
 export type MainStackNavigationProps<

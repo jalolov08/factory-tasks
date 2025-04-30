@@ -29,8 +29,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       if (token) {
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         try {
-          const response = await api.get<User>('/app/me');
-          setUser(response.data);
+          const response = await api.get<{ user: User }>('/app/me');
+          setUser(response.data.user);
         } catch (error) {
           console.error('Failed to fetch user', error);
         }

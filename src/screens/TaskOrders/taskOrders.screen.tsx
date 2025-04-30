@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, RefreshControl, TouchableOpacity } from 'react-native';
+import {
+  View,
+  FlatList,
+  RefreshControl,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import { Title, ActivityIndicator, Text } from 'react-native-paper';
 import { ITaskOrder } from '../../types/taskOrder.type';
 import { api } from '@api/api';
@@ -107,7 +113,13 @@ export default function TaskOrders({ navigation }: TaskOrdersScreenProps) {
       <FlatList
         data={taskOrders}
         keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <TaskOrder item={item} />}
+        renderItem={({ item }) => (
+          <Pressable
+            onPress={() => navigation.navigate('TaskOrder', { id: item._id })}
+          >
+            <TaskOrder item={item} />
+          </Pressable>
+        )}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.5}
         refreshControl={
