@@ -7,24 +7,16 @@ export type TaskOrderStackParams = {
   TaskOrder: { id: string };
 };
 
-export type TaskOrderRouteProps<RouteName extends keyof TaskOrderStackParams> =
-  RouteProp<TaskOrderStackParams, RouteName>;
-
-export type TaskOrderStackNavigationProps<
-  NavigationName extends keyof TaskOrderStackParams
-> = NativeStackScreenProps<TaskOrderStackParams, NavigationName>;
-
-export type TaskOrdersScreenProps = NativeStackScreenProps<
+export type TaskOrderRouteProps<RouteName extends keyof TaskOrderStackParams> = RouteProp<
   TaskOrderStackParams,
-  'TaskOrders'
+  RouteName
 >;
 
-export type FiltersScreenProps = NativeStackScreenProps<
-  TaskOrderStackParams,
-  'Filters'
->;
+export type TaskOrderStackNavigationProps<NavigationName extends keyof TaskOrderStackParams> =
+  NativeStackScreenProps<TaskOrderStackParams, NavigationName>;
 
-export type TaskOrderScreenProps = NativeStackScreenProps<
-  TaskOrderStackParams,
-  'TaskOrder'
->;
+export type TaskOrdersScreenProps = NativeStackScreenProps<TaskOrderStackParams, 'TaskOrders'>;
+
+export type FiltersScreenProps = NativeStackScreenProps<TaskOrderStackParams, 'Filters'>;
+
+export type TaskOrderScreenProps = NativeStackScreenProps<TaskOrderStackParams, 'TaskOrder'>;

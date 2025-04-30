@@ -7,6 +7,5 @@ export type MainStackParams = {
   TaskOrder: { id: string };
 };
 
-export type MainStackNavigationProps<
-  NavigationName extends keyof MainStackParams
-> = NativeStackScreenProps<MainStackParams, NavigationName>;
+export type MainStackNavigationProps<NavigationName extends keyof MainStackParams> =
+  NativeStackScreenProps<MainStackParams, NavigationName>;

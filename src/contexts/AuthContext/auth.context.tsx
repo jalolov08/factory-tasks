@@ -18,9 +18,7 @@ const AuthContext = createContext<AuthContextProps>(defaultContext);
 
 export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, setUser, logout, login } = useAuthStore();
 
   useEffect(() => {
@@ -42,13 +40,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const onLogin = async (username: string, password: string) => {
     try {
-      const response = await api.post<{ token: string; user: User }>(
-        '/app/login',
-        {
-          username,
-          password,
-        }
-      );
+      const response = await api.post<{ token: string; user: User }>('/app/login', {
+        username,
+        password,
+      });
       const { token, user } = response.data;
 
       await AsyncStorage.setItem('token', token);
@@ -72,9 +67,5 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  return (
-    <AuthContext.Provider value={{ onLogin, onLogout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ onLogin, onLogout }}>{children}</AuthContext.Provider>;
 };

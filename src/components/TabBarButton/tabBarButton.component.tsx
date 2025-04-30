@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  Pressable,
-  StyleProp,
-  ViewStyle,
-  TextStyle,
-  ColorValue,
-} from 'react-native';
+import { Pressable, StyleProp, ViewStyle, TextStyle, ColorValue } from 'react-native';
 import { Icons, Icon } from '@components/Icon/icon.component';
 import { Typography } from '@components/Typography/typography.component';
 import Animated, {
@@ -39,10 +33,9 @@ export const TabBarButton: React.FC<TabBarButtonProps> = ({
   const scale = useSharedValue(0);
 
   useEffect(() => {
-    scale.value = withSpring(
-      typeof isFocused === 'boolean' ? (isFocused ? 1 : 0) : isFocused,
-      { duration: 400 }
-    );
+    scale.value = withSpring(typeof isFocused === 'boolean' ? (isFocused ? 1 : 0) : isFocused, {
+      duration: 400,
+    });
   }, [scale, isFocused]);
 
   const animatedIconStyle = useAnimatedStyle(() => {
@@ -62,7 +55,7 @@ export const TabBarButton: React.FC<TabBarButtonProps> = ({
         <Icon type={Icons.Feather} name={icon} color={color} size={20} />
       </Animated.View>
       {isFocused && (
-        <Typography variant="caption" style={labelStyle}>
+        <Typography variant='caption' style={labelStyle}>
           {typeof label === 'string'
             ? label.toLocaleLowerCase()
             : String(label).toLocaleLowerCase()}

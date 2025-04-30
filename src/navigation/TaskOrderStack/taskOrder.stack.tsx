@@ -9,8 +9,8 @@ const Stack = createNativeStackNavigator<TaskOrderStackParams>();
 function TaskOrderStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="TaskOrders" component={TaskOrders} />
-      <Stack.Screen name="Filters" component={Filters} />
+      <Stack.Screen name='TaskOrders' component={TaskOrders} />
+      <Stack.Screen name='Filters' component={Filters} />
     </Stack.Navigator>
   );
 }

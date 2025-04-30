@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, SafeAreaView } from 'react-native';
-import {
-  Menu,
-  Title,
-  Provider,
-  ActivityIndicator,
-  Button,
-} from 'react-native-paper';
+import { Menu, Title, Provider, ActivityIndicator, Button } from 'react-native-paper';
 import { useFiltersStore } from '@zustand/useFiltersStore';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { Produce } from '../../types/produce.type';
@@ -29,15 +23,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
     error: clientError,
   } = useGetRequest<Client[]>('/client/list');
 
-  const {
-    status,
-    startDate,
-    endDate,
-    sortBy,
-    order,
-    setFilters,
-    resetFilters,
-  } = useFiltersStore();
+  const { status, startDate, endDate, sortBy, order, setFilters, resetFilters } = useFiltersStore();
 
   const [selectedStatus, setSelectedStatus] = useState(status);
   const [startDateFilter, setStartDateFilter] = useState(startDate);
@@ -97,12 +83,8 @@ export default function Filters({ navigation }: FiltersScreenProps) {
   };
 
   useEffect(() => {
-    const selectedClientData = clientsList?.find(
-      (client) => client._id === selectedClient
-    );
-    const selectedProduceData = producesList?.find(
-      (produce) => produce._id === selectedProduce
-    );
+    const selectedClientData = clientsList?.find((client) => client._id === selectedClient);
+    const selectedProduceData = producesList?.find((produce) => produce._id === selectedProduce);
 
     if (selectedClientData) {
       setClientName(selectedClientData.name);
@@ -123,10 +105,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
           visible={statusMenuVisible}
           onDismiss={() => setStatusMenuVisible(false)}
           anchor={
-            <TouchableOpacity
-              style={styles.menuButton}
-              onPress={() => setStatusMenuVisible(true)}
-            >
+            <TouchableOpacity style={styles.menuButton} onPress={() => setStatusMenuVisible(true)}>
               <Text style={styles.buttonText}>{selectedStatus}</Text>
             </TouchableOpacity>
           }
@@ -144,29 +123,23 @@ export default function Filters({ navigation }: FiltersScreenProps) {
         </Menu>
 
         <Text style={styles.label}>Дата начала</Text>
-        <TouchableOpacity
-          style={styles.dateButton}
-          onPress={() => setStartDatePickerVisible(true)}
-        >
+        <TouchableOpacity style={styles.dateButton} onPress={() => setStartDatePickerVisible(true)}>
           <Text style={styles.buttonText}>{startDateFilter}</Text>
         </TouchableOpacity>
         <DateTimePickerModal
           isVisible={isStartDatePickerVisible}
-          mode="date"
+          mode='date'
           onConfirm={handleConfirmStartDate}
           onCancel={() => setStartDatePickerVisible(false)}
         />
 
         <Text style={styles.label}>Дата окончания</Text>
-        <TouchableOpacity
-          style={styles.dateButton}
-          onPress={() => setEndDatePickerVisible(true)}
-        >
+        <TouchableOpacity style={styles.dateButton} onPress={() => setEndDatePickerVisible(true)}>
           <Text style={styles.buttonText}>{endDateFilter}</Text>
         </TouchableOpacity>
         <DateTimePickerModal
           isVisible={isEndDatePickerVisible}
-          mode="date"
+          mode='date'
           onConfirm={handleConfirmEndDate}
           onCancel={() => setEndDatePickerVisible(false)}
         />
@@ -176,10 +149,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
           visible={sortByMenuVisible}
           onDismiss={() => setSortByMenuVisible(false)}
           anchor={
-            <TouchableOpacity
-              style={styles.menuButton}
-              onPress={() => setSortByMenuVisible(true)}
-            >
+            <TouchableOpacity style={styles.menuButton} onPress={() => setSortByMenuVisible(true)}>
               <Text style={styles.buttonText}>{sortByFilter}</Text>
             </TouchableOpacity>
           }
@@ -189,14 +159,14 @@ export default function Filters({ navigation }: FiltersScreenProps) {
               setSortByFilter('admissionDate');
               setSortByMenuVisible(false);
             }}
-            title="Дата поступления"
+            title='Дата поступления'
           />
           <Menu.Item
             onPress={() => {
               setSortByFilter('completionDate');
               setSortByMenuVisible(false);
             }}
-            title="Дата завершения"
+            title='Дата завершения'
           />
         </Menu>
 
@@ -205,10 +175,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
           visible={orderMenuVisible}
           onDismiss={() => setOrderMenuVisible(false)}
           anchor={
-            <TouchableOpacity
-              style={styles.menuButton}
-              onPress={() => setOrderMenuVisible(true)}
-            >
+            <TouchableOpacity style={styles.menuButton} onPress={() => setOrderMenuVisible(true)}>
               <Text style={styles.buttonText}>{orderFilter}</Text>
             </TouchableOpacity>
           }
@@ -218,14 +185,14 @@ export default function Filters({ navigation }: FiltersScreenProps) {
               setOrderFilter('asc');
               setOrderMenuVisible(false);
             }}
-            title="По возрастанию"
+            title='По возрастанию'
           />
           <Menu.Item
             onPress={() => {
               setOrderFilter('desc');
               setOrderMenuVisible(false);
             }}
-            title="По убыванию"
+            title='По убыванию'
           />
         </Menu>
 
@@ -241,9 +208,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
                 style={styles.menuButton}
                 onPress={() => setClientMenuVisible(true)}
               >
-                <Text style={styles.buttonText}>
-                  {clientName || 'Выберите клиента'}
-                </Text>
+                <Text style={styles.buttonText}>{clientName || 'Выберите клиента'}</Text>
               </TouchableOpacity>
             }
           >
@@ -273,9 +238,7 @@ export default function Filters({ navigation }: FiltersScreenProps) {
                 style={styles.menuButton}
                 onPress={() => setProduceMenuVisible(true)}
               >
-                <Text style={styles.buttonText}>
-                  {produceName || 'Выберите продукцию'}
-                </Text>
+                <Text style={styles.buttonText}>{produceName || 'Выберите продукцию'}</Text>
               </TouchableOpacity>
             }
           >
@@ -293,14 +256,10 @@ export default function Filters({ navigation }: FiltersScreenProps) {
           </Menu>
         )}
 
-        <Button
-          onPress={handleApplyFilters}
-          mode="contained"
-          style={{ marginVertical: 12 }}
-        >
+        <Button onPress={handleApplyFilters} mode='contained' style={{ marginVertical: 12 }}>
           Применить фильтры
         </Button>
-        <Button onPress={handleResetFilters} mode="elevated">
+        <Button onPress={handleResetFilters} mode='elevated'>
           <Text style={styles.buttonText}>Сбросить фильтры</Text>
         </Button>
       </SafeAreaView>

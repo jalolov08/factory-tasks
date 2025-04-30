@@ -8,11 +8,7 @@ type TypographyProps = {
   style?: StyleProp<TextStyle>;
 };
 
-export const Typography: React.FC<TypographyProps> = ({
-  variant,
-  children,
-  style,
-}) => {
+export const Typography: React.FC<TypographyProps> = ({ variant, children, style }) => {
   const variantStyle = styles[variant];
 
   return <Text style={[variantStyle, style]}>{children}</Text>;

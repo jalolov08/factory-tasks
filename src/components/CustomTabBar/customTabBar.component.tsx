@@ -1,18 +1,9 @@
 import { TabBarButton } from '@components/TabBarButton/tabBarButton.component';
-import {
-  black,
-  colors,
-  primaryColor,
-  secondaryColor,
-} from '@constants/colors.constant';
+import { black, colors, primaryColor, secondaryColor } from '@constants/colors.constant';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useState } from 'react';
 import { View, StyleSheet, LayoutChangeEvent, Platform } from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 });

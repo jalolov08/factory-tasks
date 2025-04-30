@@ -32,6 +32,6 @@ export const useAuthStore = create<AuthStore>()(
           isAuthenticated: user !== null,
         }),
     }),
-    { name: 'user-storage', storage: createJSONStorage(() => storage) }
-  )
+    { name: 'user-storage', storage: createJSONStorage(() => storage) },
+  ),
 );

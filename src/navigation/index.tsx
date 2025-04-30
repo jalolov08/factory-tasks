@@ -16,12 +16,12 @@ function Main() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuthenticated ? (
         <>
-          <Stack.Screen name="TabBar" component={TabBar} />
-          <Stack.Screen name="EditProfile" component={EditProfile} />
-          <Stack.Screen name="TaskOrder" component={TaskOrder} />
+          <Stack.Screen name='TabBar' component={TabBar} />
+          <Stack.Screen name='EditProfile' component={EditProfile} />
+          <Stack.Screen name='TaskOrder' component={TaskOrder} />
         </>
       ) : (
-        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name='AuthStack' component={AuthStack} />
       )}
     </Stack.Navigator>
   );

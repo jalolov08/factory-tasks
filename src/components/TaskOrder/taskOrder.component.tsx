@@ -1,13 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {
-  Card,
-  Title,
-  Paragraph,
-  Chip,
-  IconButton,
-  Text,
-} from 'react-native-paper';
+import { Card, Title, Paragraph, Chip, IconButton, Text } from 'react-native-paper';
 import { ITaskOrder } from '../../types/taskOrder.type';
 import { colors, white } from '@constants/colors.constant';
 
@@ -77,16 +70,12 @@ export default function TaskOrder({ item }: TaskOrderProps) {
 
         <View style={styles.infoContainer}>
           <Paragraph style={styles.paragraph}>
-            Дата приёма:{' '}
-            <Text style={styles.boldText}>{item.admissionDate}</Text>
+            Дата приёма: <Text style={styles.boldText}>{item.admissionDate}</Text>
           </Paragraph>
         </View>
 
         <Chip
-          style={[
-            styles.chip,
-            { backgroundColor: getStatusColor(item.status) },
-          ]}
+          style={[styles.chip, { backgroundColor: getStatusColor(item.status) }]}
           textStyle={styles.chipText}
         >
           {item.status}

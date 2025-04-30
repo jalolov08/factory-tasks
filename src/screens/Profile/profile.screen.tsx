@@ -15,12 +15,8 @@ export default function Profile({ navigation }: ProfileScreenProps) {
       <View style={styles.profileContainer}>
         <Card style={styles.card}>
           <Card.Content>
-            <Avatar.Image
-              source={{ uri: defaultProfileImage }}
-              size={100}
-              style={styles.avatar}
-            />
-            <Text variant="headlineSmall" style={styles.header}>
+            <Avatar.Image source={{ uri: defaultProfileImage }} size={100} style={styles.avatar} />
+            <Text variant='headlineSmall' style={styles.header}>
               Профиль
             </Text>
             {user ? (
@@ -40,10 +36,7 @@ export default function Profile({ navigation }: ProfileScreenProps) {
             )}
           </Card.Content>
           <Card.Actions style={styles.cardActions}>
-            <Button
-              mode="contained"
-              onPress={() => navigation.navigate('EditProfile')}
-            >
+            <Button mode='contained' onPress={() => navigation.navigate('EditProfile')}>
               Изменить
             </Button>
           </Card.Actions>

@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       <View style={styles.content}>
         {loading ? (
-          <ActivityIndicator size="small" color={white} />
+          <ActivityIndicator size='small' color={white} />
         ) : (
           <>
             <Text style={[styles.text, textStyle]}>{title}</Text>

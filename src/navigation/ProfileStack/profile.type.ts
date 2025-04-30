@@ -6,19 +6,14 @@ export type ProfileStackParams = {
   EditProfile: undefined;
 };
 
-export type ProfileRouteProps<RouteName extends keyof ProfileStackParams> =
-  RouteProp<ProfileStackParams, RouteName>;
-
-export type ProfileStackNavigationProps<
-  NavigationName extends keyof ProfileStackParams
-> = NativeStackScreenProps<ProfileStackParams, NavigationName>;
-
-export type ProfileScreenProps = NativeStackScreenProps<
+export type ProfileRouteProps<RouteName extends keyof ProfileStackParams> = RouteProp<
   ProfileStackParams,
-  'Profile'
+  RouteName
 >;
 
-export type EditProfileScreenProps = NativeStackScreenProps<
-  ProfileStackParams,
-  'EditProfile'
->;
+export type ProfileStackNavigationProps<NavigationName extends keyof ProfileStackParams> =
+  NativeStackScreenProps<ProfileStackParams, NavigationName>;
+
+export type ProfileScreenProps = NativeStackScreenProps<ProfileStackParams, 'Profile'>;
+
+export type EditProfileScreenProps = NativeStackScreenProps<ProfileStackParams, 'EditProfile'>;

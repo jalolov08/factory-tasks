@@ -39,10 +39,7 @@ export default function EditProfile() {
         password: password || undefined,
       };
 
-      const response = await put<{ message: string; user: User }>(
-        '/app/profile',
-        updatedUser
-      );
+      const response = await put<{ message: string; user: User }>('/app/profile', updatedUser);
 
       setUser(response.data.user);
       Toast.show({
@@ -60,9 +57,7 @@ export default function EditProfile() {
         type: 'error',
         position: 'bottom',
         text1: 'Ошибка',
-        text2:
-          error.response.data.error ||
-          'Произошла ошибка при сохранении данных!',
+        text2: error.response.data.error || 'Произошла ошибка при сохранении данных!',
       });
     } finally {
       setLoading(false);
@@ -77,36 +72,36 @@ export default function EditProfile() {
         <Card.Content>
           <View style={styles.formContainer}>
             <TextInput
-              label="Логин"
-              mode="outlined"
+              label='Логин'
+              mode='outlined'
               value={username}
               onChangeText={setUsername}
               style={styles.input}
-              placeholder="Введите ваш логин"
+              placeholder='Введите ваш логин'
             />
             <TextInput
-              label="Имя"
-              mode="outlined"
+              label='Имя'
+              mode='outlined'
               value={name}
               onChangeText={setName}
               style={styles.input}
-              placeholder="Введите ваше имя"
+              placeholder='Введите ваше имя'
             />
             <TextInput
-              label="Пароль"
-              mode="outlined"
+              label='Пароль'
+              mode='outlined'
               secureTextEntry
               value={password}
               onChangeText={setPassword}
               style={styles.input}
-              placeholder="Введите новый пароль (если хотите изменить)"
+              placeholder='Введите новый пароль (если хотите изменить)'
             />
-            <HelperText type="info" visible={password === ''}>
+            <HelperText type='info' visible={password === ''}>
               Если не хотите изменить пароль, оставьте поле пустым
             </HelperText>
 
             <Button
-              mode="contained"
+              mode='contained'
               onPress={handleSave}
               style={styles.saveButton}
               color={colors.primary}

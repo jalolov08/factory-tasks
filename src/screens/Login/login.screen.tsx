@@ -46,33 +46,28 @@ export default function Login() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Typography variant="h2" style={styles.heading}>
+      <Typography variant='h2' style={styles.heading}>
         Войти
       </Typography>
 
       <View style={styles.formContainer}>
         <TextInput
-          label="Логин"
+          label='Логин'
           value={username}
           onChangeText={setUsername}
           style={styles.input}
-          mode="outlined"
+          mode='outlined'
         />
         <TextInput
-          label="Пароль"
+          label='Пароль'
           value={password}
           onChangeText={setPassword}
           style={styles.input}
-          mode="outlined"
+          mode='outlined'
           secureTextEntry
         />
 
-        <Button
-          mode="contained"
-          style={styles.button}
-          onPress={handleLogin}
-          loading={loading}
-        >
+        <Button mode='contained' style={styles.button} onPress={handleLogin} loading={loading}>
           Войти
         </Button>
       </View>

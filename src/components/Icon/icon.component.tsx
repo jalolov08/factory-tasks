@@ -51,21 +51,11 @@ interface IconProps {
   style?: StyleProp<ViewStyle>;
 }
 
-const Icon: React.FC<IconProps> = ({
-  type,
-  name,
-  color = black,
-  size = 24,
-  style,
-}) => {
+const Icon: React.FC<IconProps> = ({ type, name, color = black, size = 24, style }) => {
   const fontSize = 24;
   const Tag = type;
   return (
-    <>
-      {type && name && (
-        <Tag name={name} size={size || fontSize} color={color} style={style} />
-      )}
-    </>
+    <>{type && name && <Tag name={name} size={size || fontSize} color={color} style={style} />}</>
   );
 };
 

@@ -6,24 +6,21 @@ interface UseRequest {
   post: <T>(
     url: string,
     payload: any,
-    headers?: AxiosRequestConfig['headers']
+    headers?: AxiosRequestConfig['headers'],
   ) => Promise<AxiosResponse<T>>;
   patch: <T>(url: string, payload: any) => Promise<AxiosResponse<T>>;
   put: <T>(url: string, payload: any) => Promise<AxiosResponse<T>>;
   remove: <T>(url: string) => Promise<AxiosResponse<T>>;
 }
 export const useRequest = (): UseRequest => {
-  const get = async <T>(
-    url: string,
-    params?: Record<string, any>
-  ): Promise<AxiosResponse<T>> => {
+  const get = async <T>(url: string, params?: Record<string, any>): Promise<AxiosResponse<T>> => {
     return api.get(url, { params });
   };
 
   const post = <T>(
     url: string,
     payload: any,
-    headers?: AxiosRequestConfig['headers']
+    headers?: AxiosRequestConfig['headers'],
   ): Promise<AxiosResponse<T>> => {
     return api.post(url, payload, { headers });
   };
@@ -32,10 +29,7 @@ export const useRequest = (): UseRequest => {
     return api.patch(url, payload);
   };
 
-  const put = <T>(
-    url: string,
-    payload: FormData
-  ): Promise<AxiosResponse<T>> => {
+  const put = <T>(url: string, payload: FormData): Promise<AxiosResponse<T>> => {
     return api.put(url, payload);
   };
 

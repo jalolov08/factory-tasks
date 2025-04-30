@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  FlatList,
-  RefreshControl,
-  TouchableOpacity,
-  Pressable,
-} from 'react-native';
+import { View, FlatList, RefreshControl, TouchableOpacity, Pressable } from 'react-native';
 import { Title, ActivityIndicator, Text } from 'react-native-paper';
 import { ITaskOrder } from '../../types/taskOrder.type';
 import { api } from '@api/api';
@@ -100,10 +94,7 @@ export default function TaskOrders({ navigation }: TaskOrdersScreenProps) {
     <View style={styles.container}>
       <View style={styles.header}>
         <Title style={styles.title}>Заказы на выполнение</Title>
-        <TouchableOpacity
-          onPress={handleFilterPress}
-          style={styles.filterButton}
-        >
+        <TouchableOpacity onPress={handleFilterPress} style={styles.filterButton}>
           <Text style={styles.filterText}>Фильтры</Text>
         </TouchableOpacity>
       </View>
@@ -114,20 +105,14 @@ export default function TaskOrders({ navigation }: TaskOrdersScreenProps) {
         data={taskOrders}
         keyExtractor={(item) => item._id}
         renderItem={({ item }) => (
-          <Pressable
-            onPress={() => navigation.navigate('TaskOrder', { id: item._id })}
-          >
+          <Pressable onPress={() => navigation.navigate('TaskOrder', { id: item._id })}>
             <TaskOrder item={item} />
           </Pressable>
         )}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.5}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
-        }
-        ListFooterComponent={
-          loading && !refreshing ? <ActivityIndicator /> : null
-        }
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />}
+        ListFooterComponent={loading && !refreshing ? <ActivityIndicator /> : null}
         ListEmptyComponent={
           !loading && !refreshing && taskOrders.length === 0 ? (
             <View style={styles.emptyStateContainer}>
