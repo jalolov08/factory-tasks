@@ -3,6 +3,7 @@ import { RouteProp } from '@react-navigation/native';
 
 export type TaskOrderStackParams = {
   TaskOrders: undefined;
+  Filters: undefined;
 };
 
 export type TaskOrderRouteProps<RouteName extends keyof TaskOrderStackParams> =
@@ -15,4 +16,9 @@ export type TaskOrderStackNavigationProps<
 export type TaskOrdersScreenProps = NativeStackScreenProps<
   TaskOrderStackParams,
   'TaskOrders'
+>;
+
+export type FiltersScreenProps = NativeStackScreenProps<
+  TaskOrderStackParams,
+  'Filters'
 >;
